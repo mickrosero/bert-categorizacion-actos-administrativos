@@ -1,0 +1,39 @@
+# Configuración Principal del Proyecto
+project:
+  name: "BERT Categorizacion Actos Administrativos"
+  version: "1.0.0"
+  description: "Clasificador de actos administrativos con BERT"
+
+# Configuración del Modelo
+model:
+  name: "dccuchile/bert-base-spanish-wwm-uncased"
+  max_length: 512
+  num_labels: 10
+  dropout: 0.1
+  learning_rate: 2e-5
+  
+# Configuración de Entrenamiento
+training:
+  batch_size: 16
+  epochs: 10
+  validation_split: 0.2
+  test_split: 0.1
+  early_stopping_patience: 3
+  save_best_only: true
+
+# Configuración de Datos
+data:
+  raw_path: "data/raw"
+  processed_path: "data/processed"
+  interim_path: "data/interim"
+  predictions_path: "data/predictions"
+  
+# Configuración de Google Drive
+drive:
+  folder_id: ""  # ID de carpeta de Google Drive
+  credentials_file: "credentials/client_secrets.json"
+  
+# Logging
+logging:
+  level: "INFO"
+  file: "logs/training.log"
